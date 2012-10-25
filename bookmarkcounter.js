@@ -94,25 +94,6 @@ function deliCountView(link) {
         return;
 
       renderHtml(link, total, "http://delicious.com/url/"+json[0].hash, "__GMsavers");
-
-      // var span = document.createElement('span');
-      // span.className = "__GMsavers";
-      // var a = document.createElement('a');
-      // a.setAttribute('style', 'color: #FFF;');
-      // a.href = "http://delicious.com/url/" + json[0].hash;
-      // a.textContent = total;
-      // span.appendChild(a);
-
-      // // 普通の検索結果
-      // var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-      // if (s && link.parentNode.className == "r") {
-        // var gl = s.getElementsByClassName('gl')[0];
-        // gl.parentNode.insertBefore(span, gl.nextSibling);
-      // }
-      // // 検索結果に含まれるニュース・ブログ検索要素
-      // else {
-        // link.parentNode.insertBefore(span, link.nextSibling);
-      // }
     }
   });
 }
@@ -141,26 +122,6 @@ function twitterCountView(link) {
         return;
 
       renderHtml(link, total, json.response.topsy_trackback_url, "__GMtwisavers");
-
-      // var span = document.createElement('span');
-      // span.className = "__GMtwisavers";
-
-      // var a = document.createElement('a');
-      // a.setAttribute('style', 'color: #FFF;');
-      // a.href = json.response.topsy_trackback_url;
-      // a.textContent = total;
-      // span.appendChild(a);
-
-      // //普通の検索結果
-      // var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-      // if (s && link.parentNode.className == "r") {
-        // var gl = s.getElementsByClassName('gl')[0];
-        // gl.parentNode.insertBefore(span, gl.nextSibling);
-      // }
-      // //検索結果に含まれるニュース・ブログ検索要素
-      // else {
-        // link.parentNode.insertBefore(span, link.nextSibling);
-      // }
     }
   });
 }
@@ -187,25 +148,6 @@ function diggCountView(link) {
         return;
 
       renderHtml(link, total, json.stories[0].href, "__GMdiggsavers");
-
-      // var span = document.createElement('span');
-      // span.className = "__GMdiggsavers";
-      // var a = document.createElement('a');
-      // a.setAttribute('style', 'color: #FFF;');
-      // a.href = json.stories[0].href;
-      // a.textContent = total;
-      // span.appendChild(a);
-
-      // //普通の検索結果
-      // var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-      // if (s && link.parentNode.className == "r") {
-        // var gl = s.getElementsByClassName('gl')[0];
-        // gl.parentNode.insertBefore(span, gl.nextSibling);
-      // }
-      // //検索結果に含まれるニュース・ブログ検索要素
-      // else {
-        // link.parentNode.insertBefore(span, link.nextSibling);
-      // }
     }
   });
 }
@@ -235,25 +177,6 @@ function hatebuCountView(link) {
         return;
 
       renderHtml(link, total, json.entry_url, "__GMhatebusavers");
-
-      // var span = document.createElement('span');
-      // span.className = "__GMhatebusavers";
-      // var a = document.createElement('a');
-      // a.setAttribute('style', 'color: #FFF;');
-      // a.href = json.entry_url;
-      // a.textContent = total;
-      // span.appendChild(a);
-
-      // //普通の検索結果
-      // var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-      // if (s && link.parentNode.className == "r") {
-        // var gl = s.getElementsByClassName('gl')[0];
-        // gl.parentNode.insertBefore(span, gl.nextSibling);
-      // }
-      // //検索結果に含まれるニュース・ブログ検索要素
-      // else {
-        // link.parentNode.insertBefore(span, link.nextSibling);
-      // }
     }
   });
 }
@@ -283,25 +206,6 @@ function facebookCountView(link) {
         return;
 
       renderHtml(link, total, json.url, "__GMfacebooksavers");
-
-      // var span = document.createElement('span');
-      // span.className = "__GMfacebooksavers";
-      // var a = document.createElement('a');
-      // a.setAttribute('style', 'color: #FFF;');
-      // a.href = json.url;
-      // a.textContent = total;
-      // span.appendChild(a);
-
-      // //普通の検索結果
-      // var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-      // if (s && link.parentNode.className == "r") {
-        // var gl = s.getElementsByClassName('gl')[0];
-        // gl.parentNode.insertBefore(span, gl.nextSibling);
-      // }
-      // //検索結果に含まれるニュース・ブログ検索要素
-      // else {
-        // link.parentNode.insertBefore(span, link.nextSibling);
-      // }
     }
   });
 }
