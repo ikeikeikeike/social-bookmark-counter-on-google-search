@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name          social-bookmark-counter-on-google-search
-// @namespace     http://about.me/ikeikeikeike
+// @namespace     https://github.com/ikeikeikeike
 // @include       http://www.google.*/search*
 // @include       http://www.google.*/custom*
 // @include       https://www.google.*/search*
 // @include       https://www.google.*/custom*
 // @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Digg and StumbleUpon.
-// @author        Tatsuo Ikeda <jp.ne.co.jp at gmail>
+// @author        Tatsuo Ikeda <jp.ne.co.jp at gmail> http://about.me/ikeikeikeike
 // @homepage      https://userscripts.org/scripts/show/115527
 // @updateURL     https://userscripts.org/scripts/source/115527.meta.js
 // @downloadURL   https://userscripts.org/scripts/source/115527.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
-// @version       0.6.3
+// @version       0.6.4
 // ==/UserScript==
 
 
