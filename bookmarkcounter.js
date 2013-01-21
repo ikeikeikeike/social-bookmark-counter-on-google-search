@@ -12,6 +12,7 @@
 // @downloadURL   https://userscripts.org/scripts/source/115527.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
 // @version       0.6.4
+// @license       Creative Commons
 // ==/UserScript==
 
 
@@ -137,7 +138,7 @@ function twitterCountView(link) {
       total = json.response.trackback_total;
       if (!json)
         return;
-      if (!total < 1)
+      if (!total)
         return;
     } catch (e) {console.log(e);return;}
 
