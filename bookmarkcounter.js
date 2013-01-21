@@ -11,7 +11,7 @@
 // @updateURL     https://userscripts.org/scripts/source/115527.meta.js
 // @downloadURL   https://userscripts.org/scripts/source/115527.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
-// @version       0.6.5
+// @version       0.7.1
 // @license       Creative Commons
 // ==/UserScript==
 
