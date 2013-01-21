@@ -126,7 +126,7 @@ function deliCountView(link) {
  */
 function twitterCountView(link) {
   // var url = "http://api.tweetmeme.com/url_info.jsonc?url=" + link.href + '&callback=crossdomain_res';
-  var url = "http://otter.topsy.com/trackbacks.js?url=" + link.href + "&tracktype=tweet&callback=crossdomain_res";
+  var url = "http://otter.topsy.com/trackbacks.js?url=" + link.href + "&tracktype=tweet&callback=crossdomain_res&apikey=XJUA7NPEJSU5YPU4PQJQAAAAACY322KEERIQAAAAAAAFQGYA";
 
   requestApi(url, function(res) {
     var
