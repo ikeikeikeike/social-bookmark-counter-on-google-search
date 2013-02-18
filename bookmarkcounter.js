@@ -15,6 +15,14 @@
 // @license       Creative Commons
 // ==/UserScript==
 
+/*
+@include       http://search.yahoo.co.jp/search?*
+@include       https://search.yahoo.co.jp/search?*
+@include       http://www.bing.com/search*
+@include       https://www.bing.com/search*
+@include       http://userscripts.org/scripts/search?*
+@include       https://userscripts.org/scripts/search?*
+*/
 
 (function(){
 /* http://www.onicos.com/staff/iz/amuse/javascript/expert/md5.txt */
@@ -123,10 +131,12 @@ function deliCountView(link) {
 /**
  * 1. Tweetmeme is over. Thanks!!
  * #. Change Topsy API.
+ * #. Change to native twitter API.  # Note: Exists count bug.
  */
 function twitterCountView(link) {
   // var url = "http://api.tweetmeme.com/url_info.jsonc?url=" + link.href + '&callback=crossdomain_res';
-  var url = "http://otter.topsy.com/trackbacks.js?url=" + link.href + "&tracktype=tweet&callback=crossdomain_res&apikey=XJUA7NPEJSU5YPU4PQJQAAAAACY322KEERIQAAAAAAAFQGYA";
+  var url = "http://urls.api.twitter.com/1/urls/count.json?url=" + link.href + "&callback=crossdomain_res";
+  var toUrl = "http://topsy.com/";
 
   requestApi(url, function(res) {
     var
@@ -135,14 +145,14 @@ function twitterCountView(link) {
 
     try {
       json = eval(res.responseText.replace('crossdomain_res', ''));
-      total = json.response.trackback_total;
+      total = json.count;
       if (!json)
         return;
       if (!total)
         return;
     } catch (e) {console.log(e);return;}
 
-    renderHtml(link, total, json.response.topsy_trackback_url, "__GMtwisavers");
+    renderHtml(link, total, toUrl + json.url, "__GMtwisavers");
   });
 }
 
