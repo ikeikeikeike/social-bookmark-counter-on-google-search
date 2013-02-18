@@ -40,7 +40,7 @@ function fnc(doc) {
       diggCountView(l[i]);
       stumbleuponCountView(l[i]);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 }
@@ -91,17 +91,18 @@ function renderHtml(link, total, url, className) {
   a.textContent = total;
   span.appendChild(a);
 
-  // normal
-  var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-  if (s && link.parentNode.className == "r") {
-    var gl = s.getElementsByClassName('gl')[0];
-    gl.parentNode.insertBefore(span, gl.nextSibling);
-  }
-  // normal + news + url
-  else {
-    link.parentNode.insertBefore(span, link.nextSibling);
-  }
-
+  try {
+    // normal
+    var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
+    if (s && link.parentNode.className == "r") {
+      var gl = s.getElementsByClassName('gl')[0];
+      gl.parentNode.insertBefore(span, gl.nextSibling);
+    }
+    // normal + news + url
+    else {
+      link.parentNode.insertBefore(span, link.nextSibling);
+    }
+  } catch(e) {/*console.log(e);*/}
 }
 
 /**
@@ -122,7 +123,7 @@ function deliCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
     renderHtml(link, total, "http://delicious.com/url/"+json[0].hash, "__GMsavers");
   });
@@ -150,9 +151,10 @@ function twitterCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
-    renderHtml(link, total, toUrl + json.url, "__GMtwisavers");
+    renderHtml(link, total, toUrl + json.url.replace(/^(.+)\/$/, "$1"), "__GMtwisavers");
+
   });
 }
 
@@ -174,7 +176,7 @@ function diggCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
     renderHtml(link, total, json.stories[0].href, "__GMdiggsavers");
   });
@@ -198,7 +200,7 @@ function hatebuCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
     renderHtml(link, total, json.entry_url, "__GMhatebusavers");
   });
@@ -227,7 +229,7 @@ function facebookCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
     renderHtml(link, total, 'https://developers.facebook.com/docs/reference/plugins/like/', "__GMfacebooksavers");
   });
@@ -251,7 +253,7 @@ function stumbleuponCountView(link) {
         return;
       if (!total)
         return;
-    } catch (e) {console.log(e);return;}
+    } catch (e) {/*console.log(e);*/return;}
 
     renderHtml(link, total, json.result.info_link, "__GMstumbleuponsavers");
   });
