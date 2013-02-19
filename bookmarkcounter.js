@@ -153,7 +153,7 @@ function twitterCountView(link) {
         return;
     } catch (e) {/*console.log(e);*/return;}
 
-    renderHtml(link, total, toUrl + json.url.replace(/^(.+)\/$/, "$1"), "__GMtwisavers");
+    renderHtml(link, total, toUrl + link.href, "__GMtwisavers");
 
   });
 }
