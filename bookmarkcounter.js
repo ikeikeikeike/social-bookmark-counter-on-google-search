@@ -81,12 +81,15 @@ function renderHtml(link, total, url, className) {
   try {
     // normal
     var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
-    if (s && link.parentNode.className == "r") {
-      var gl = s.getElementsByClassName('gl')[0];
-      var tonode = gl ? gl : link;
-      tonode.parentNode.insertBefore(span, tonode.nextSibling);
+    var ss = link.parentNode.parentNode.parentNode.getElementsByClassName('s')[0];
+    if (s) {
+      var tonode = s.childNodes[0];
+      tonode.parentNode.insertBefore(span, tonode.parentNode.firstChild);
     }
-    // normal + news + url
+    else if (ss) {
+      var tonode = ss.childNodes[0];
+      tonode.parentNode.insertBefore(span, tonode.parentNode.firstChild);
+    }
     else {
       link.parentNode.insertBefore(span, link.nextSibling);
     }
