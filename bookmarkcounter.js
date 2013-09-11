@@ -408,7 +408,7 @@ function asyncProcArray(params, onProcess, onFinish) {
       return;
     }
 
-    setTimeout( arguments.callee, 400);
+    setTimeout( arguments.callee, 100);
   })();
 }
 
@@ -444,20 +444,24 @@ function runAcyncArray(params, onProcess, onFinish) {
 function func(doc) {
   var params = [];
   var n, l = doc.getElementsByClassName("r");
-
-  for(var i=0; i<l.length; i++) {
-    params.push(l[i].childNodes.item(0));
-  }
-
   var fin = function(params) {
     // console.log('finish: ' + params);
   }
 
-  runAcyncArray(params, hatebuCountView, fin);
-  runAcyncArray(params, deliCountView, fin);
-  runAcyncArray(params, facebookCountView, fin);
-  runAcyncArray(params, twitterCountView, fin);
-  runAcyncArray(params, stumbleuponCountView, fin);
+  for(var i=0; i<l.length; i++) {
+    n = l[i].childNodes.item(0);
+
+    //hatebuCountView(n);
+    // diggCountView(n);
+
+    params.push(n);
+  }
+
+  asyncProcArray(params, hatebuCountView, fin);
+  asyncProcArray(params, deliCountView, fin);
+  asyncProcArray(params, facebookCountView, fin);
+  asyncProcArray(params, twitterCountView, fin);
+  asyncProcArray(params, stumbleuponCountView, fin);
   // asyncProcArray(params, diggCountView, fin);
 }
 
