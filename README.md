@@ -4,22 +4,25 @@ Displaying social bookmark count.
 
 [userscripts.org](http://userscripts.org/scripts/show/115527)
 
-# Requirements
+## Requirements
 
-### FireFox
+#### FireFox
 
 * [Greasemonkey](http://www.greasespot.net/)
 
-### Google Chrome, Safari
+#### Google Chrome
+
++ [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+
+#### Safari
 
 + [NinjaKit](https://github.com/os0x/NinjaKit)
 
-
-# Setup
+## Setup
 
 [userscripts.org](http://userscripts.org/scripts/show/115527)
 
 
-# License
+## License
 
 http://userscripts.org/scripts/show/115527
