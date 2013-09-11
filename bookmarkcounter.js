@@ -397,7 +397,7 @@ function stumbleuponCountView(link) {
  * http://nanoappli.com/blog/archives/768
  */
 function asyncProcArray(params, onProcess, onFinish) {
-  var paramList = params.concat();    // 配列のコピーを作る
+  var paramList = params.concat();
 
   (function() {
     var slipNo = paramList.shift();
@@ -413,7 +413,10 @@ function asyncProcArray(params, onProcess, onFinish) {
 }
 
 
-function runAcyncArray( params, onProcess, onFinish ) {
+/**
+ * http://nanoappli.com/blog/archives/768
+ */
+function runAcyncArray(params, onProcess, onFinish) {
   var paramList = params.concat();
 
   (function() {
