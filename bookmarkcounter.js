@@ -262,7 +262,7 @@ function fnc(doc) {
   }
 
   var fin = function(params) {
-    console.log('finish: ' + params);
+    // console.log('finish: ' + params);
   }
 
   asyncProcArray(params, hatebuCountView, fin);
