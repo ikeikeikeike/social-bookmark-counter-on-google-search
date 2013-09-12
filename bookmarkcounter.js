@@ -243,6 +243,7 @@ function renderHtml(link, total, url, className) {
  */
 function deliCountView(link) {
   var url = "http://feeds.delicious.com/v2/json/urlinfo/" + md5_hex(link.href);
+
   requestApi(url, function(res) {
     var json,
         total;
@@ -270,8 +271,9 @@ function deliCountView(link) {
  */
 function twitterCountView(link) {
   // var url = "http://api.tweetmeme.com/url_info.jsonc?url=" + link.href + '&callback=crossdomain_res';
-  var url = "http://urls.api.twitter.com/1/urls/count.json?url=" + link.href + "&callback=crossdomain_res";
-  var toUrl = "http://topsy.com/";
+  var url = "http://urls.api.twitter.com/1/urls/count.json?url=" + link.href + "&callback=crossdomain_res",
+      toUrl = "http://topsy.com/trackback?url=";
+
   requestApi(url, function(res) {
     var json,
         total;
@@ -297,6 +299,7 @@ function twitterCountView(link) {
  */
 function diggCountView(link) {
   var url = "http://services.digg.com/1.0/endpoint?method=story.getAll&link=" + link.href + '&type=javascript&callback=crossdomain_res';
+
   requestApi(url, function(res) {
     var json,
         total;
@@ -322,6 +325,7 @@ function diggCountView(link) {
  */
 function hatebuCountView(link) {
   var url = "http://b.hatena.ne.jp/entry/json/?url=" + encodeURI(link.href) + "&callback=crossdomain_res";
+
   requestApi(url, function(res) {
     var json,
         total;
@@ -350,6 +354,7 @@ function facebookCountView(link) {
       url;
   encode = encodeURI(link.href);
   url = "https://api.facebook.com/method/fql.query?query=select like_count, total_count, share_count, comment_count, normalized_url, url from link_stat where url='" + encode + "'&format=json&callback=crossdomain_res";
+
   requestApi(url, function(res){
     var json,
         total;
@@ -375,6 +380,7 @@ function facebookCountView(link) {
  */
 function stumbleuponCountView(link) {
   var url = "http://www.stumbleupon.com/services/1.01/badge.getinfo?url=" + link.href;
+
   requestApi(url, function(res){
     var json,
         total;
