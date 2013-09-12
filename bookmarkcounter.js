@@ -207,13 +207,16 @@ function requestApi(url, func) {
  * Render Html
  */
 function renderHtml(link, total, url, className) {
-  var span = document.createElement('span');
-  span.className = className;
-  var a = document.createElement('a');
+  var span = document.createElement('span'),
+      a = document.createElement('a');
+
   a.setAttribute('style', 'color: #FFF;');
   a.href = url;
   a.textContent = total;
+
+  span.className = className;
   span.appendChild(a);
+
   try {
     // normal
     var s = link.parentNode.parentNode.getElementsByClassName('s')[0];
@@ -241,20 +244,20 @@ function renderHtml(link, total, url, className) {
 function deliCountView(link) {
   var url = "http://feeds.delicious.com/v2/json/urlinfo/" + md5_hex(link.href);
   requestApi(url, function(res) {
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       json = eval("(" + res.responseText + ")");
       total = json[0].total_posts;
-      if (json.length < 1)
+      if (json.length < 1 || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, "http://delicious.com/url/"+json[0].hash, "__GMsavers");
   });
 }
@@ -270,20 +273,20 @@ function twitterCountView(link) {
   var url = "http://urls.api.twitter.com/1/urls/count.json?url=" + link.href + "&callback=crossdomain_res";
   var toUrl = "http://topsy.com/";
   requestApi(url, function(res) {
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       json = eval(res.responseText.replace('crossdomain_res', ''));
       total = json.count;
-      if (!json)
+      if (!json || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, toUrl + link.href, "__GMtwisavers");
   });
 }
@@ -295,20 +298,20 @@ function twitterCountView(link) {
 function diggCountView(link) {
   var url = "http://services.digg.com/1.0/endpoint?method=story.getAll&link=" + link.href + '&type=javascript&callback=crossdomain_res';
   requestApi(url, function(res) {
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       json = eval(res.responseText.replace('crossdomain_res', ''));
       total = json.stories[0].diggs;
-      if (!json)
+      if (!json || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, json.stories[0].href, "__GMdiggsavers");
   });
 }
@@ -320,20 +323,20 @@ function diggCountView(link) {
 function hatebuCountView(link) {
   var url = "http://b.hatena.ne.jp/entry/json/?url=" + encodeURI(link.href) + "&callback=crossdomain_res";
   requestApi(url, function(res) {
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       json = eval(res.responseText.replace('crossdomain_res', ''));
       total = json.count;
-      if (json.length < 1)
+      if (json.length < 1 || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, json.entry_url, "__GMhatebusavers");
   });
 }
@@ -343,26 +346,25 @@ function hatebuCountView(link) {
  * facebook like button
  */
 function facebookCountView(link) {
-  var
-    encode,
-    url;
+  var encode,
+      url;
   encode = encodeURI(link.href);
   url = "https://api.facebook.com/method/fql.query?query=select like_count, total_count, share_count, comment_count, normalized_url, url from link_stat where url='" + encode + "'&format=json&callback=crossdomain_res";
   requestApi(url, function(res){
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       json = eval(res.responseText.replace('crossdomain_res', ''))[0];
       total = json.total_count;
-      if (json.length < 1)
+      if (json.length < 1 || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, 'https://developers.facebook.com/docs/reference/plugins/like/', "__GMfacebooksavers");
   });
 }
@@ -374,20 +376,20 @@ function facebookCountView(link) {
 function stumbleuponCountView(link) {
   var url = "http://www.stumbleupon.com/services/1.01/badge.getinfo?url=" + link.href;
   requestApi(url, function(res){
-    var
-      json,
-      total;
+    var json,
+        total;
+
     try {
       eval("json = " + res.responseText);
       total = json.result.views;
-      if (json.success !== true)
+      if (json.success !== true || !total) {
         return;
-      if (!total)
-        return;
+      }
     } catch (e) {
       // console.log(e);
       return;
     }
+
     renderHtml(link, total, json.result.info_link, "__GMstumbleuponsavers");
   });
 }
@@ -441,7 +443,7 @@ function runAcyncArray(params, onProcess, onFinish) {
 }
 
 
-function func(doc) {
+function main(doc) {
   var params = [];
   var n, l = doc.getElementsByClassName("r");
   var fin = function(params) {
@@ -467,14 +469,14 @@ function func(doc) {
 
 
 document.body.addEventListener('AutoPagerize_DOMNodeInserted', function(evt) {
-  func(evt.target);
+  main(evt.target);
 });
 
 
 ///// Main
 
 try{
-  func(document);
+  main(document);
 } catch (e) {
   // console.log(e)
 }
