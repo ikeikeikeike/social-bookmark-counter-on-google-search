@@ -195,7 +195,7 @@ function requestApi(url, func) {
     method: "GET",
     url: url,
     headers: {
-      "User-Agent": "Mozilla/5.0 (compatible; Social bookmark Counter/0.7.6; +https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search)",
+      "User-Agent": "Mozilla/5.0 (compatible; Social bookmark Counter/0.7.8; +https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search)",
       "Accept": "text/xml"
     },
     onload: func
