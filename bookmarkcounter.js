@@ -7,7 +7,9 @@
 // @include       https://www.google.*/custom*
 // @require       http://code.jquery.com/jquery-2.0.3.min.js
 // @require       https://raw.github.com/ikeikeikeike/bookmarkhub/master/bookmarkhub.js
-// @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Reddit, Digg and StumbleUpon.
+// @grant         GM_addStyle
+// @grant         GM_xmlhttpRequest
+// @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Digg and StumbleUpon.
 // @author        Tatsuo Ikeda <jp.ne.co.jp at gmail> http://about.me/ikeikeikeike
 // @homepage      https://userscripts.org/scripts/show/115527
 // @updateURL     https://userscripts.org/scripts/source/115527.meta.js
@@ -216,11 +218,11 @@ Bookmarkhub['requester'] = function(options, callback) {
     },
     onload: function(data) {
       try {
-        callback($.parseJSON(data.response));
+        callback($.parseJSON(data.responseText));
       } catch(e) {
         var receiveCount = function(o) {return o;},
             IN = {Tags: {Share: {handleCount: function(o) {return o;}}}};
-        callback(eval(data.response));
+        callback(eval(data.responseText));
       }
     }
   });
@@ -403,7 +405,6 @@ function redditCountView(link) {
 
   bookmarker.reddit()
     .done(function(data) {
-      console.log(data);
       if (Number(data.count) > 0) {
         renderHtml(link, data.count, data.link, "__GMredditsavers");
       }
