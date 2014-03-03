@@ -15,7 +15,7 @@
 // @updateURL     https://userscripts.org/scripts/source/115527.meta.js
 // @downloadURL   https://userscripts.org/scripts/source/115527.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
-// @version       0.9.0
+// @version       0.9.1
 // @license       Creative Commons
 // ==/UserScript==
 /*
@@ -205,7 +205,7 @@ GM_addStyle([
 // }
 // ]]></>);
 
-var USER_AGENT = "Mozilla/5.0 (compatible; Social bookmark Counter/0.9.0; +https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search)"
+var USER_AGENT = "Mozilla/5.0 (compatible; Social bookmark Counter/0.9.1; +https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search)"
 
 // Monkey patch
 Bookmarkhub['requester'] = function(options, callback) {
