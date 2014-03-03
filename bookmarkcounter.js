@@ -7,7 +7,7 @@
 // @include       https://www.google.*/custom*
 // @require       http://code.jquery.com/jquery-2.0.3.min.js
 // @require       https://raw.github.com/ikeikeikeike/bookmarkhub/master/bookmarkhub.js
-// @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Digg and StumbleUpon.
+// @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Reddit, Digg and StumbleUpon.
 // @author        Tatsuo Ikeda <jp.ne.co.jp at gmail> http://about.me/ikeikeikeike
 // @homepage      https://userscripts.org/scripts/show/115527
 // @updateURL     https://userscripts.org/scripts/source/115527.meta.js
