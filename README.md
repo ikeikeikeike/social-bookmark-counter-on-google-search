@@ -4,6 +4,10 @@ Displaying social bookmark count.
 
 [userscripts.org](http://userscripts.org/scripts/show/115527)
 
+## Installation
+
+[bookmarkcounter.user.js](https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/raw/master/bookmarkcounter.user.js)
+
 ## Requirements
 
 #### FireFox
