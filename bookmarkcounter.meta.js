@@ -17,6 +17,6 @@
 // @updateURL     https://raw.githubusercontent.com/ikeikeikeike/social-bookmark-counter-on-google-search/master/bookmarkcounter.meta.js
 // @downloadURL   https://raw.githubusercontent.com/ikeikeikeike/social-bookmark-counter-on-google-search/master/bookmarkcounter.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
-// @version       0.10.1
+// @version       0.10.2
 // @license       Creative Commons
 // ==/UserScript==
