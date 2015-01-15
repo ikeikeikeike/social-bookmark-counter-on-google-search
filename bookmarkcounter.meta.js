@@ -3,8 +3,10 @@
 // @namespace     https://github.com/ikeikeikeike
 // @include       http://www.google.*/search*
 // @include       http://www.google.*/custom*
+// @include       http://www.google.*/webhp*
 // @include       https://www.google.*/search*
 // @include       https://www.google.*/custom*
+// @include       https://www.google.*/webhp*
 // @require       http://code.jquery.com/jquery-2.0.3.min.js
 // @require       https://raw.github.com/ikeikeikeike/bookmarkhub/master/bookmarkhub.js
 // @grant         GM_addStyle
