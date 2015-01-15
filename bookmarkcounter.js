@@ -11,11 +11,11 @@
 // @grant         GM_xmlhttpRequest
 // @description   Script Summary: Supporting Delicious, Facebook, Twitter, Hatena, Digg and StumbleUpon.
 // @author        Tatsuo Ikeda <jp.ne.co.jp at gmail> http://about.me/ikeikeikeike
-// @homepage      https://userscripts.org/scripts/show/115527
-// @updateURL     https://userscripts.org/scripts/source/115527.meta.js
-// @downloadURL   https://userscripts.org/scripts/source/115527.user.js
+// @homepage      https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search
+// @updateURL     https://raw.githubusercontent.com/ikeikeikeike/social-bookmark-counter-on-google-search/master/bookmarkcounter.meta.js
+// @downloadURL   https://raw.githubusercontent.com/ikeikeikeike/social-bookmark-counter-on-google-search/master/bookmarkcounter.user.js
 // @supportURL    https://github.com/ikeikeikeike/social-bookmark-counter-on-google-search/issues
-// @version       0.9.1
+// @version       0.10.1
 // @license       Creative Commons
 // ==/UserScript==
 /*
